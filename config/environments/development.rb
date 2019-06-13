@@ -13,11 +13,7 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  if Rails.root.join('tmp', 'caching-dev.txt').exist?
-    config.cache_store = :memory_store
-  else
-    config.cache_store = :null_store
-  end
+  config.cache_store = Rails.root.join('tmp', 'caching-dev.txt').exist? ? :memory_store : :null_store
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
