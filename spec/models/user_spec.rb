@@ -65,5 +65,15 @@ RSpec.describe User, type: :model do
       # However, the error key is reporting index [0].
       expect(user.errors.keys).to contain_exactly(:'notes[1].body')
     end
+
+    it 'reports the index of an error correctly when the first element is assigned existing values' do
+      # The invalid element is at index [1].
+      # The element at index [0] is assigned attributes without any changes.
+      user.notes_attributes = [user.notes.first.attributes, { id: user.notes.second.id, body: '' }]
+      user.validate
+
+      # However, the error key is reporting index [0].
+      expect(user.errors.keys).to contain_exactly(:'notes[1].body')
+    end
   end
 end
