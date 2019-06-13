@@ -15,5 +15,15 @@ FactoryBot.define do
   factory :user do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
+
+    trait :with_notes do
+      transient do
+        notes_count { 3 }
+      end
+
+      after(:build) do |user, e|
+        user.notes = build_list(:note, e.notes_count, user: user)
+      end
+    end
   end
 end
