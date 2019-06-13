@@ -1,0 +1,69 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  DefaultFormatter: progress
+  DisplayCopNames: true
+  ExtraDetails: true
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'bin/*'
+
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Layout/AlignHash:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/*.rb'
+    - 'spec/**/*'
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: error
+
+Rails:
+  Enabled: true
+
+RSpec/ExpectChange:
+  EnforcedStyle: block
+
+RSpec/HookArgument:
+  EnforcedStyle: each
+
+RSpec/ImplicitExpect:
+  EnforcedStyle: should
+
+RSpec/ImplicitSubject:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  SafeAutoCorrect: true
+  Exclude:
+    - 'config/application.rb'
+
+Style/Documentation:
+  Enabled: false
+  
