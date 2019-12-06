@@ -6,7 +6,7 @@ ruby '2.6.3'
 
 gem 'awesome_print'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'rails', '~> 6.0.0.rc1'
 gem 'sqlite3', '~> 1.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
